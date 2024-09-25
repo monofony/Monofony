@@ -18,14 +18,6 @@ final class CanonicalizerListener
     {
     }
 
-    public function getSubscribedEvents(): array
-    {
-        return [
-            Events::prePersist,
-            Events::preUpdate,
-        ];
-    }
-
     public function canonicalize(LifecycleEventArgs $event): void
     {
         $item = $event->getObject();

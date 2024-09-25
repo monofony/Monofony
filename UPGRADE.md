@@ -1,6 +1,156 @@
+## UPGRADE FOR `0.10.x`
+
+### FROM `0.10.x` TO `0.11.x`
+
+* the interface `Monofony\Contracts\Api\Identifier\AppUserIdentifierNormalizerInterface` has been changed due to Symfony changes.
+
+    Before    
+    ```php
+    public function denormalize($data, $type, $format = null, array $context = []);
+    public function supportsDenormalization($data, $type, $format = null);
+    ```
+
+    After 
+    ```php
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed;
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool;
+    ```
+
+* Twig 3 does not support spaceless tag anymore
+
+    Before
+    ```twig
+    {% spaceless %}
+    <-- .... -->
+    {% endspaceless %}
+    ```
+
+    After
+    ```twig
+    {% apply spaceless %}
+    <-- .... -->
+    {% endapply %}
+    ```
+
+* Annotations are not supported anymore on Symfony 7
+    
+    on `App\Message\ChangeAppUserPassword`
+
+    Before
+    ```php
+    /**
+     * @SecurityAssert\UserPassword(message="sylius.user.plainPassword.wrong_current")
+     */
+    ```
+
+    After
+    ```php
+    #[SecurityAssert\UserPassword(message: 'sylius.user.plainPassword.wrong_current')]
+    ```
+
+    on `App\Message\RegisterAppUser`
+ 
+    Before
+    ```php
+    /**
+     * @CustomConstraints\UniqueAppUserEmail()
+     */
+    ```
+  
+    After
+    ```php
+    #[CustomConstraints\UniqueAppUserEmail]
+    ```
+  
+    Before
+    ```php
+    /**
+     * @Vich\UploadableField(mapping="admin_avatar", fileNameProperty="path")
+     */
+    ```
+  
+    After
+    ```php
+    #[Vich\UploadableField(mapping: 'admin_avatar', fileNameProperty: 'path')]
+    ```
+
+* `Symfony\Component\Security\Core\Security` has been removed from Symfony
+    
+    Replace by `Symfony\Bundle\SecurityBundle\Security`
+
+* `Symfony\Component\Messenger\Handler\MessageHandlerInterface` interface has been removed
+
+    Before
+    ```php
+    final class RegisterAppUserHandler implements MessageHandlerInterface
+    ```
+  
+    After
+    ```php
+    #[AsMessageHandler]
+    final class RegisterAppUserHandler
+    ```
+
+* Use new AsCommand attribute on your commands
+
+    Before
+    ```php
+    class InstallAssetsCommand extends Command 
+    {
+        protected static $defaultName = 'app:install:assets';
+
+        // ...
+
+        protected function configure(): void
+        {
+            $this->setDescription('Installs all AppName assets.');        
+        }
+  
+        // ...
+    }
+    ``` 
+  
+    After
+    ```php
+    #[AsCommand(
+        name: 'app:install:assets',
+        description: 'Installs all AppName assets.',
+    )]
+    class InstallAssetsCommand extends Command 
+    {
+        // ...
+    }
+    ```
+
+* Doctrine Event subscribers have been removed
+
+    Before
+    ```php
+    final class CanonicalizerSubscriber implements EventSubscriber 
+    {
+        // ...
+  
+        public function getSubscribedEvents(): array
+        {
+            return [
+                Events::prePersist,
+                Events::preUpdate,
+            ];
+        }
+    }
+    ```
+
+    After
+    ```php
+    [AsDoctrineListener(event: Events::prePersist)]
+    final class CanonicalizerSubscriber
+    {
+        // ...
+    ```  
+
 ## UPGRADE FOR `0.9.x`
 
-### FROM `0.8.x` TO `0.9x`
+### FROM `0.8.x` TO `0.9.x`
 
 Add these lines on `config/packages/monofony_admin.yaml`
 
