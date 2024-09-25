@@ -13,6 +13,7 @@
             <directory name="src/Monofony/Bridge/SyliusUser/spec" />
             <directory name="src/Monofony/MetaPack/AdminMeta/.recipe/spec" />
             <directory name="src/Monofony/MetaPack/AdminMeta/.recipe/tests" />
+            <directory name="src/Monofony/MetaPack/ApiMeta/.recipe/spec" />
             <directory name="src/Monofony/MetaPack/CoreMeta/.recipe/spec" />
             <directory name="src/Monofony/MetaPack/FrontMeta/.recipe/tests" />
             <directory name="src/Monofony/Bundle/CoreBundle/spec" />
@@ -42,6 +43,12 @@
                 <file name="src/Monofony/Bridge/Behat/Client/ApiPlatformClient.php" />
             </errorLevel>
         </MoreSpecificImplementedParamType>
+        
+        <MissingTemplateParam>
+            <errorLevel type="suppress">
+                <file name="src/Monofony/MetaPack/CoreMeta/.recipe/src/Repository/UserRepository.php" />
+            </errorLevel>
+        </MissingTemplateParam>
 
         <PossiblyUndefinedMethod>
             <errorLevel type="suppress">

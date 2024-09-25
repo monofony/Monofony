@@ -6,15 +6,18 @@ namespace App\Command\Installer;
 
 use App\Command\Helper\CommandsRunner;
 use App\Installer\Provider\DatabaseSetupCommandsProviderInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+#[AsCommand(
+    name: 'app:install:database',
+    description: 'Install AppName database.',
+)]
 class InstallDatabaseCommand extends Command
 {
-    protected static $defaultName = 'app:install:database';
-
     public function __construct(
         private DatabaseSetupCommandsProviderInterface $databaseSetupCommandsProvider,
         private CommandsRunner $commandsRunner,
@@ -28,7 +31,7 @@ class InstallDatabaseCommand extends Command
      */
     protected function configure(): void
     {
-        $this->setDescription('Install AppName database.')
+        $this
             ->setHelp(
                 <<<EOT
 The <info>%command.name%</info> command creates AppName database.

@@ -24,9 +24,12 @@
         "phpstan/phpstan-webmozart-assert": "^1.1",
         "psr/event-dispatcher": "^1.0",
         "se/selenium-server-standalone": "2.*",
-        "symfony/debug-bundle": "^6.1",
-        "symfony/web-profiler-bundle": "^6.1",
-        "vimeo/psalm": "^4.22"
+        "symfony/debug-bundle": "^6.4 || ^7.1",
+        "symfony/web-profiler-bundle": "^6.4 || ^7.1",
+        "vimeo/psalm": "^5.26"
+    },
+    "conflict": {
+        "behat/mink-selenium2-driver": ">=1.7.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

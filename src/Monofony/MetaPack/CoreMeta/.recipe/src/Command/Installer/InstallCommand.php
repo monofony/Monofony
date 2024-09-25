@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace App\Command\Installer;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Exception\RuntimeException;
 
+#[AsCommand(
+    name: 'app:install',
+    description: 'Installs AppName in your preferred environment.',
+)]
 class InstallCommand extends Command
 {
-    protected static $defaultName = 'app:install';
     private ?CommandExecutor $commandExecutor = null;
 
     /**
@@ -40,7 +44,7 @@ class InstallCommand extends Command
      */
     protected function configure(): void
     {
-        $this->setDescription('Installs AppName in your preferred environment.')
+        $this
             ->setHelp(
                 <<<EOT
 The <info>%command.name%</info> command installs AppName.

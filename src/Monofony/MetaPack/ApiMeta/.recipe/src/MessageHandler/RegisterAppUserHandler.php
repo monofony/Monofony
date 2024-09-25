@@ -9,9 +9,10 @@ use App\Provider\CustomerProviderInterface;
 use Monofony\Contracts\Core\Model\User\AppUserInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
+use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
-final class RegisterAppUserHandler implements MessageHandlerInterface
+#[AsMessageHandler]
+final class RegisterAppUserHandler
 {
     public function __construct(
         private FactoryInterface $appUserFactory,

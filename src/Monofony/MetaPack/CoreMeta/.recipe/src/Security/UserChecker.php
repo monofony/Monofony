@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Security;
 
+use Sylius\Component\User\Model\AdvancedUserInterface;
 use Sylius\Component\User\Model\UserInterface as SyliusUserInterface;
-use SyliusLabs\Polyfill\Symfony\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Security\Core\Exception\CredentialsExpiredException;
 use Symfony\Component\Security\Core\Exception\DisabledException;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;

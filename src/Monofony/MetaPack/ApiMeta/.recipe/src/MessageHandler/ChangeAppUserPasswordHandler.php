@@ -8,11 +8,12 @@ use App\Message\ChangeAppUserPassword;
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Component\User\Model\CredentialsHolderInterface;
 use Sylius\Component\User\Security\PasswordUpdaterInterface;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Webmozart\Assert\Assert;
 
-final class ChangeAppUserPasswordHandler implements MessageHandlerInterface
+#[AsMessageHandler]
+final class ChangeAppUserPasswordHandler
 {
     public function __construct(
         private PasswordUpdaterInterface $passwordUpdater,

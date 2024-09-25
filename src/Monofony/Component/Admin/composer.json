@@ -4,11 +4,11 @@
     "description": "Monofony admin.",
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "knplabs/knp-menu": "^3.1",
         "monofony/admin-contracts": "^0.10",
         "monofony/core": "^0.10",
-        "symfony/routing": "^6.1"
+        "symfony/routing": "^6.4 || ^7.1"
     },
     "autoload": {
         "psr-4": {

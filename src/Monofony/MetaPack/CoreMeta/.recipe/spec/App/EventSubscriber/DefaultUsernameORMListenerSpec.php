@@ -15,20 +15,8 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Sylius\Component\User\Model\UserInterface;
 
-final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
+final class DefaultUsernameORMListenerSpec extends ObjectBehavior
 {
-    function it_is_a_subscriber(): void
-    {
-        $this->shouldImplement(EventSubscriber::class);
-    }
-
-    function it_subscribes_to_events(): void
-    {
-        $this->getSubscribedEvents()->shouldReturn([
-            Events::onFlush,
-        ]);
-    }
-
     function it_sets_usernames_on_customer_create(
         OnFlushEventArgs $onFlushEventArgs,
         EntityManager $entityManager,
@@ -37,7 +25,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UserInterface $user,
         ClassMetadata $userMetadata
     ): void {
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([$customer]);
@@ -66,7 +54,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UserInterface $user,
         ClassMetadata $userMetadata
     ): void {
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([]);
@@ -95,7 +83,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UserInterface $user,
         ClassMetadata $userMetadata
     ): void {
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([]);
@@ -124,7 +112,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UserInterface $user,
         ClassMetadata $userMetadata
     ): void {
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([]);
@@ -150,7 +138,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UnitOfWork $unitOfWork,
         CustomerInterface $customer
     ): void {
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([$customer]);
@@ -169,7 +157,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UnitOfWork $unitOfWork,
         CustomerInterface $customer
     ): void {
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([]);
@@ -188,7 +176,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         EntityManager $entityManager,
         UnitOfWork $unitOfWork
     ): void {
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([]);
@@ -206,7 +194,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         \stdClass $stdObject,
         \stdClass $stdObject2
     ): void {
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([$stdObject]);
@@ -232,7 +220,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         $customer->getEmail()->willReturn('customer+extra@email.com');
         $customer->getEmailCanonical()->willReturn('customer@email.com');
 
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([$stdObject, $customer]);
@@ -265,7 +253,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         $customerWithUser->getEmail()->willReturn('customer+extra@email.com');
         $customerWithUser->getEmailCanonical()->willReturn('customer@email.com');
 
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([$customerWithoutUser, $customerWithUser]);
@@ -291,7 +279,7 @@ final class DefaultUsernameORMSubscriberSpec extends ObjectBehavior
         UserInterface $userWithDifferentEmail,
         ClassMetadata $userMetadata
     ): void {
-        $onFlushEventArgs->getEntityManager()->willReturn($entityManager);
+        $onFlushEventArgs->getObjectManager()->willReturn($entityManager);
         $entityManager->getUnitOfWork()->willReturn($unitOfWork);
 
         $unitOfWork->getScheduledEntityInsertions()->willReturn([]);

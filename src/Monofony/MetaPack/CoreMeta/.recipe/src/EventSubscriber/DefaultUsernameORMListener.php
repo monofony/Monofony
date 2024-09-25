@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
-use Doctrine\Common\EventSubscriber;
+use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\Events;
@@ -15,21 +15,12 @@ use Sylius\Component\User\Model\UserInterface;
 /**
  * Keeps user's username synchronized with email.
  */
-final class DefaultUsernameORMSubscriber implements EventSubscriber
+#[AsDoctrineListener(event: Events::onFlush)]
+final class DefaultUsernameORMListener
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getSubscribedEvents(): array
-    {
-        return [
-            Events::onFlush,
-        ];
-    }
-
     public function onFlush(OnFlushEventArgs $onFlushEventArgs): void
     {
-        $entityManager = $onFlushEventArgs->getEntityManager();
+        $entityManager = $onFlushEventArgs->getObjectManager();
         $unitOfWork = $entityManager->getUnitOfWork();
 
         $this->processEntities($unitOfWork->getScheduledEntityInsertions(), $entityManager, $unitOfWork);

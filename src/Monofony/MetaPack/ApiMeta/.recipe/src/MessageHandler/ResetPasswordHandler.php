@@ -12,10 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
+use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Webmozart\Assert\Assert;
 
-final class ResetPasswordHandler implements MessageHandlerInterface
+#[AsMessageHandler]
+final class ResetPasswordHandler
 {
     public function __construct(
         private RepositoryInterface $appUserRepository,

@@ -4,10 +4,10 @@
     "description": "Monofony Sylius User Bridge",
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "monofony/core-contracts": "^0.10",
-        "sylius/user": "^1.12",
-        "sylius/user-bundle": "^1.12",
+        "sylius/user": "^2.0@alpha",
+        "sylius/user-bundle": "^2.0@alpha",
         "monofony/customer": "^1.10"
     },
     "require-dev": {

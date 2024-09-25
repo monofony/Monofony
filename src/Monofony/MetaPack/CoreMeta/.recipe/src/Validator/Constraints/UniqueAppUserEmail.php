@@ -6,9 +6,7 @@ namespace App\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 
-/**
- * @Annotation
- */
+#[\Attribute]
 final class UniqueAppUserEmail extends Constraint
 {
     public string $message = 'sylius.user.email.unique';

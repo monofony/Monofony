@@ -6,33 +6,15 @@ namespace App\Factory;
 
 use App\Entity\Customer\Customer;
 use App\Entity\User\AppUser;
-use App\Repository\UserRepository;
 use Monofony\Contracts\Core\Model\User\AppUserInterface;
-use Zenstruck\Foundry\ModelFactory;
-use Zenstruck\Foundry\Proxy;
-use Zenstruck\Foundry\RepositoryProxy;
+use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 /**
- * @extends ModelFactory<AppUser>
- *
- * @method static        AppUser|Proxy createOne(array $attributes = [])
- * @method static        AppUser[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static        AppUser|Proxy find(object|array|mixed $criteria)
- * @method static        AppUser|Proxy findOrCreate(array $attributes)
- * @method static        AppUser|Proxy first(string $sortedField = 'id')
- * @method static        AppUser|Proxy last(string $sortedField = 'id')
- * @method static        AppUser|Proxy random(array $attributes = [])
- * @method static        AppUser|Proxy randomOrCreate(array $attributes = [])
- * @method static        AppUser[]|Proxy[] all()
- * @method static        AppUser[]|Proxy[] findBy(array $attributes)
- * @method static        AppUser[]|Proxy[] randomSet(int $number, array $attributes = [])
- * @method static        AppUser[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static        UserRepository|RepositoryProxy repository()
- * @method AppUser|Proxy create(array|callable $attributes = [])
+ * @extends PersistentProxyObjectFactory<AppUser>
  */
-final class AppUserFactory extends ModelFactory
+final class AppUserFactory extends PersistentProxyObjectFactory
 {
-    protected function getDefaults(): array
+    protected function defaults(): array
     {
         return [
             'customer' => null,
@@ -77,7 +59,7 @@ final class AppUserFactory extends ModelFactory
         ;
     }
 
-    protected static function getClass(): string
+    public static function class(): string
     {
         return AppUser::class;
     }

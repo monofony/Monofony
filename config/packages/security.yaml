@@ -4,8 +4,6 @@ parameters:
     secret: '%env(resolve:APP_SECRET)%'
 
 security:
-    enable_authenticator_manager: true
-
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         sylius_admin_user_provider:
