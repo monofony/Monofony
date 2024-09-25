@@ -12,9 +12,7 @@ final class ChangeAppUserPassword implements AppUserIdAwareInterface
 {
     public ?int $appUserId = null;
 
-    /**
-     * @SecurityAssert\UserPassword(message="sylius.user.plainPassword.wrong_current")
-     */
+    #[SecurityAssert\UserPassword(message: 'sylius.user.plainPassword.wrong_current')]
     #[NotBlank]
     #[Groups(groups: ['customer:password:write'])]
     public ?string $currentPassword;

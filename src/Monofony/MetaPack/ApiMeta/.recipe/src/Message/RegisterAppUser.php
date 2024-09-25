@@ -12,9 +12,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class RegisterAppUser
 {
-    /**
-     * @CustomConstraints\UniqueAppUserEmail()
-     */
+    #[CustomConstraints\UniqueAppUserEmail]
     #[NotBlank(message: 'sylius.customer.email.not_blank')]
     #[Email(message: 'sylius.customer.email.invalid', mode: 'strict')]
     #[Length(max: 254, maxMessage: 'sylius.customer.email.max')]

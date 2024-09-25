@@ -15,7 +15,7 @@ use Monofony\Bridge\Behat\Service\NotificationCheckerInterface;
 use Monofony\Bridge\Behat\Service\SharedStorageInterface;
 use Monofony\Contracts\Core\Model\User\AdminUserInterface;
 use Webmozart\Assert\Assert;
-use Zenstruck\Foundry\Proxy;
+use Zenstruck\Foundry\Persistence\Proxy;
 
 final class ManagingAdministratorsContext implements Context
 {
@@ -268,10 +268,10 @@ final class ManagingAdministratorsContext implements Context
         }
 
         if ($administrator instanceof Proxy) {
-            $administrator->refresh();
+            $$administrator->_refresh();
         }
 
-        Assert::same($this->sharedStorage->get($avatar), $administrator->getAvatar()->getPath());
+        Assert::same($this->sharedStorage->get($avatar), $administrator->getAvatar()?->getPath());
     }
 
     /**
@@ -289,7 +289,7 @@ final class ManagingAdministratorsContext implements Context
         }
 
         if ($administrator instanceof Proxy) {
-            $administrator->refresh();
+            $administrator->_refresh();
         }
 
         $avatar = $administrator->getAvatar();

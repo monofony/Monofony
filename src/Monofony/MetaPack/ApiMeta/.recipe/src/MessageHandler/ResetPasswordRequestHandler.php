@@ -11,10 +11,11 @@ use Sylius\Bundle\UserBundle\UserEvents;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Sylius\Component\User\Security\Generator\GeneratorInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
+use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
-final class ResetPasswordRequestHandler implements MessageHandlerInterface
+#[AsMessageHandler]
+final class ResetPasswordRequestHandler
 {
     public function __construct(
         private RepositoryInterface $customerRepository,

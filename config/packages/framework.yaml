@@ -5,19 +5,19 @@ framework:
         paths:
             - '%kernel.project_dir%/src/Monofony/MetaPack/CoreMeta/.recipe/translations'
     secret:          '%env(APP_SECRET)%'
-    form:            ~
-    csrf_protection: ~
-    validation:      { enable_annotations: true }
+    form: null
+    csrf_protection: null
+    validation: null
     serializer:
         enabled: true
         mapping:
             paths: ['%kernel.project_dir%/src/Monofony/MetaPack/ApiMeta/.recipe/config/serialization/']
     default_locale:  "%locale%"
-    trusted_hosts:   ~
+    trusted_hosts: null
     session:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
-        handler_id:  ~
-    fragments:       ~
+        handler_id: null
+    fragments: null
     http_method_override: true
     php_errors:
         log: true

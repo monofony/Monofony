@@ -4,11 +4,11 @@
     "description": "Monofony core bundle.",
     "license": "MIT",
     "require": {
-        "php": "^8.1",
-        "symfony/config": "^6.1",
-        "symfony/dependency-injection": "^6.1",
-        "symfony/http-foundation": "^6.1",
-        "symfony/http-kernel": "^6.1"
+        "php": "^8.2",
+        "symfony/config": "^6.4 || ^7.1",
+        "symfony/dependency-injection": "^6.4 || ^7.1",
+        "symfony/http-foundation": "^6.4 || ^7.1",
+        "symfony/http-kernel": "^6.4 || ^7.1"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.5"

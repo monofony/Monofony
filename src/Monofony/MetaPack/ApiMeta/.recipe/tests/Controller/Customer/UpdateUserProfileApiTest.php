@@ -25,7 +25,7 @@ final class UpdateUserProfileApiTest extends JsonApiTestCase
 
         $customer = AppUserFactory::find(['username' => 'sylius'])->getCustomer();
 
-        $this->client->request('PUT', '/api/customers/'.$customer->getId());
+        $this->client->request(method: 'PUT', uri: '/api/customers/'.$customer->getId(), server: ['CONTENT_TYPE' => 'application/json']);
 
         $response = $this->client->getResponse();
         $this->assertResponse($response, 'error/access_denied_response', Response::HTTP_UNAUTHORIZED);
@@ -48,7 +48,7 @@ final class UpdateUserProfileApiTest extends JsonApiTestCase
         }
 EOT;
 
-        $this->client->request('PUT', '/api/customers/'.$customer->getId(), [], [], self::$authorizedHeaderWithContentType, $data);
+        $this->client->request(method: 'PUT', uri: '/api/customers/'.$customer->getId(), server: self::$authorizedHeaderWithContentType, content: $data);
 
         $response = $this->client->getResponse();
         $this->assertResponseCode($response, Response::HTTP_FORBIDDEN);
@@ -71,7 +71,7 @@ EOT;
         }
 EOT;
 
-        $this->client->request('PUT', '/api/customers/'.$customer->getId(), [], [], self::$authorizedHeaderWithContentType, $data);
+        $this->client->request(method: 'PUT', uri: '/api/customers/'.$customer->getId(), server: self::$authorizedHeaderWithContentType, content: $data);
 
         $response = $this->client->getResponse();
         $this->assertResponse($response, 'customer/update_user_profile_response', Response::HTTP_OK);
@@ -89,7 +89,7 @@ EOT;
         }
 EOT;
 
-        $this->client->request('POST', '/api/authentication_token', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+        $this->client->request(method: 'POST', uri: '/api/authentication_token', server: ['CONTENT_TYPE' => 'application/json'], content: $data);
 
         $response = $this->client->getResponse();
         $this->assertResponse($response, 'authentication/new_access_token', Response::HTTP_OK);

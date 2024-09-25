@@ -4,9 +4,9 @@
     "description": "Generic abstractions related to Core",
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "monofony/customer": "^1.10",
-        "sylius/user": "^1.12"
+        "sylius/user": "^2.0@alpha"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.5"

@@ -4,22 +4,20 @@ declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
-use Doctrine\Common\EventSubscriber;
-use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\Events;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Sylius\Component\Customer\Model\CustomerInterface;
 use Sylius\Component\User\Canonicalizer\CanonicalizerInterface;
 use Sylius\Component\User\Model\UserInterface;
 
-final class CanonicalizerSubscriber implements EventSubscriber
+#[AsDoctrineListener(event: Events::prePersist)]
+final class CanonicalizerListener
 {
     public function __construct(private CanonicalizerInterface $canonicalizer)
     {
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getSubscribedEvents(): array
     {
         return [
@@ -30,7 +28,7 @@ final class CanonicalizerSubscriber implements EventSubscriber
 
     public function canonicalize(LifecycleEventArgs $event): void
     {
-        $item = $event->getEntity();
+        $item = $event->getObject();
 
         if ($item instanceof CustomerInterface) {
             $item->setEmailCanonical($this->canonicalizer->canonicalize($item->getEmail()));

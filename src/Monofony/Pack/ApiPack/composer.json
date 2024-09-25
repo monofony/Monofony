@@ -16,15 +16,15 @@
         "phpstan/phpstan": "^1.5",
         "psr/event-dispatcher": "^1.0",
         "sylius/resource": "^1.10",
-        "sylius/user": "^1.12",
-        "sylius/user-bundle": "^1.12",
-        "symfony/messenger": "^6.1",
-        "zenstruck/foundry": "^1.14"
+        "sylius/user": "^2.0@alpha",
+        "sylius/user-bundle": "^2.0@alpha",
+        "symfony/messenger": "^6.4 || ^7.1",
+        "zenstruck/foundry": "^1.38"
     },
     "require-dev": {
         "lchrusciel/api-test-case": "^5.1",
         "phpstan/phpstan": "^1.5",
-        "zenstruck/foundry": "^1.14"
+        "zenstruck/foundry": "^1.38"
     },
     "autoload-dev": {
         "psr-4": {

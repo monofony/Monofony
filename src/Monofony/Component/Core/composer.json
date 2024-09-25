@@ -4,7 +4,7 @@
     "description": "Monofony core.",
     "license": "MIT",
     "require": {
-        "php": "^8.1"
+        "php": "^8.2"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.5"

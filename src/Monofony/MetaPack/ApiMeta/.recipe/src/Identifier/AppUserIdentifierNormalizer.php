@@ -6,8 +6,8 @@ namespace App\Identifier;
 
 use Monofony\Contracts\Api\Identifier\AppUserIdentifierNormalizerInterface;
 use Monofony\Contracts\Core\Model\User\AppUserInterface;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\Security\Core\Security;
 
 final class AppUserIdentifierNormalizer implements AppUserIdentifierNormalizerInterface
 {
@@ -18,7 +18,7 @@ final class AppUserIdentifierNormalizer implements AppUserIdentifierNormalizerIn
     /**
      * {@inheritdoc}
      */
-    public function denormalize($data, $type, $format = null, array $context = []): string
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): string
     {
         $user = $this->security->getUser();
 
@@ -32,8 +32,13 @@ final class AppUserIdentifierNormalizer implements AppUserIdentifierNormalizerIn
     /**
      * {@inheritdoc}
      */
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return 'me' === $data;
+    }
+
+    public function getSupportedTypes(?string $format): array
+    {
+        return ['object' => true];
     }
 }

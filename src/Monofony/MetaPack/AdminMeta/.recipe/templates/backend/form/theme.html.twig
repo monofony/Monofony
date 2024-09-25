@@ -20,25 +20,25 @@
 {%- endblock -%}
 
 {% block app_date_time_picker_widget %}
-    {% spaceless %}
+    {% apply spaceless %}
         <div class="ui calendar app-date-time-picker">
             <div class="ui input left icon">
                 <i class="calendar icon"></i>
                 {{ block('form_widget') }}
             </div>
         </div>
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 
 {% block app_date_picker_widget %}
-    {% spaceless %}
+    {% apply spaceless %}
         <div class="ui calendar app-date-picker">
             <div class="ui input left icon">
                 <i class="calendar icon"></i>
                 {{ block('form_widget') }}
             </div>
         </div>
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 
 {% block time_widget %}

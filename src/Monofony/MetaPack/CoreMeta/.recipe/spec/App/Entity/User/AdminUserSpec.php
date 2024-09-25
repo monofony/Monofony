@@ -26,11 +26,6 @@ final class AdminUserSpec extends ObjectBehavior
         $this->shouldImplement(UserInterface::class);
     }
 
-    function it_has_a_generated_salt_by_default(): void
-    {
-        $this->getSalt()->shouldNotReturn(null);
-    }
-
     function it_initializes_oauth_accounts_collection_by_default(): void
     {
         $this->getOAuthAccounts()->shouldHaveType(Collection::class);

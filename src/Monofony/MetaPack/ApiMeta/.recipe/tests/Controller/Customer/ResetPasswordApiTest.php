@@ -90,10 +90,10 @@ EOT;
         TestAppUsersStory::load();
 
         $user = AppUserFactory::find(['username' => 'sylius']);
-        $user->disableAutoRefresh();
+        $user->_disableAutoRefresh();
         $user->setPasswordRequestedAt(new \DateTimeImmutable('-1 day'));
         $user->setPasswordResetToken('expired_t0ken');
-        $user->save();
+        $user->_save();
 
         $data =
             <<<EOT

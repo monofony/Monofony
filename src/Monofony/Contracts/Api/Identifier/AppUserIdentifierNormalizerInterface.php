@@ -23,10 +23,10 @@ interface AppUserIdentifierNormalizerInterface extends DenormalizerInterface
      * @psalm-suppress InvalidReturnType
      * @psalm-suppress InvalidReturnStatement
      */
-    public function denormalize($data, $type, $format = null, array $context = []);
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed;
 
     /**
      * {@inheritdoc}
      */
-    public function supportsDenormalization($data, $type, $format = null);
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool;
 }
