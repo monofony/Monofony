@@ -7,11 +7,11 @@
         "php": "^8.2",
         "behat/behat": "^3.2",
         "friends-of-behat/page-object-extension": "^0.3",
-        "monofony/admin": "^0.10",
-        "monofony/admin-contracts": "^0.10",
-        "monofony/admin-meta": "^0.10",
-        "monofony/behat-bridge": "^0.10",
-        "monofony/core-contracts": "^0.10",
+        "monofony/admin": "^0.11",
+        "monofony/admin-contracts": "^0.11",
+        "monofony/admin-meta": "^0.11",
+        "monofony/behat-bridge": "^0.11",
+        "monofony/core-contracts": "^0.11",
         "sylius/ui-bundle": "^2.0@alpha",
         "pagerfanta/pagerfanta": "^3.5",
         "phpstan/phpstan": "^1.5",
@@ -27,7 +27,7 @@
     "require-dev": {
         "behat/behat": "^3.2",
         "friends-of-behat/page-object-extension": "^0.3",
-        "monofony/behat-bridge": "^0.10",
+        "monofony/behat-bridge": "^0.11",
         "phpstan/phpstan": "^1.5"
     },
     "autoload-dev": {
@@ -48,7 +48,7 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "0.10-dev"
+            "dev-master": "0.11-dev"
         }
     }
 }

@@ -9,10 +9,10 @@
         "lchrusciel/api-test-case": "^5.1",
         "lexik/jwt-authentication-bundle": "^2.14",
         "gesdinet/jwt-refresh-token-bundle": "^1.0",
-        "monofony/api-contracts": "^0.10",
-        "monofony/api-meta": "^0.10",
-        "monofony/core-contracts": "^0.10",
-        "monofony/core-meta": "^0.10",
+        "monofony/api-contracts": "^0.11",
+        "monofony/api-meta": "^0.11",
+        "monofony/core-contracts": "^0.11",
+        "monofony/core-meta": "^0.11",
         "phpstan/phpstan": "^1.5",
         "psr/event-dispatcher": "^1.0",
         "sylius/resource": "^1.10",
@@ -45,7 +45,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.10-dev"
+            "dev-master": "0.11-dev"
         }
     }
 }
