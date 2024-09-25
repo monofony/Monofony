@@ -12,11 +12,11 @@
         "doctrine/orm": "^2.18",
         "fakerphp/faker": "^1.14",
         "liip/imagine-bundle": "^2.2",
-        "monofony/behat-bridge": "^0.10",
-        "monofony/core-bundle": "^0.10",
-        "monofony/core-contracts": "^0.10",
-        "monofony/core-meta": "^0.10",
-        "monofony/sylius-user-bridge": "^0.10",
+        "monofony/behat-bridge": "^0.11",
+        "monofony/core-bundle": "^0.11",
+        "monofony/core-contracts": "^0.11",
+        "monofony/core-meta": "^0.11",
+        "monofony/sylius-user-bridge": "^0.11",
         "phpstan/phpstan": "^1.5",
         "phpstan/phpstan-webmozart-assert": "^1.1",
         "sylius/customer-bundle": "^2.0@alpha",
@@ -33,7 +33,7 @@
     },
     "require-dev": {
         "behat/behat": "^3.2",
-        "monofony/behat-bridge": "^0.10",
+        "monofony/behat-bridge": "^0.11",
         "phpstan/phpstan": "^1.5",
         "phpstan/phpstan-webmozart-assert": "^1.1"
     },
@@ -50,7 +50,7 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "0.10-dev"
+            "dev-master": "0.11-dev"
         }
     }
 }

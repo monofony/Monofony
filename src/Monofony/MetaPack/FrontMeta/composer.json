@@ -5,7 +5,7 @@
     "description": "A meta package providing recipes for front",
     "extra": {
         "branch-alias": {
-            "dev-master": "0.10-dev"
+            "dev-master": "0.11-dev"
         }
     }
 }

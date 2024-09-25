@@ -6,8 +6,8 @@
     "require": {
         "php": "^8.2",
         "knplabs/knp-menu": "^3.1",
-        "monofony/admin-contracts": "^0.10",
-        "monofony/core": "^0.10",
+        "monofony/admin-contracts": "^0.11",
+        "monofony/core": "^0.11",
         "symfony/routing": "^6.4 || ^7.1"
     },
     "autoload": {
@@ -25,7 +25,7 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "0.10-dev"
+            "dev-master": "0.11-dev"
         }
     },
     "require-dev": {

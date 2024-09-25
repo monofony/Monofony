@@ -12,7 +12,7 @@
         "friends-of-behat/mink-extension": "^2.4",
         "friends-of-behat/page-object-extension": "^0.3",
         "friends-of-behat/symfony-extension": "^2.0",
-        "monofony/core": "^0.10",
+        "monofony/core": "^0.11",
         "sylius/user": "^2.0@alpha",
         "symfony/finder": "^6.4 || ^7.1",
         "symfony/mailer": "^6.4 || ^7.1",
@@ -54,7 +54,7 @@
     "prefer-stable": true,
     "extra": {
         "branch-alias": {
-            "dev-master": "0.10-dev"
+            "dev-master": "0.11-dev"
         }
     }
 }

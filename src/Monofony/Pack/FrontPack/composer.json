@@ -5,11 +5,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "monofony/behat-bridge": "^0.10",
-        "monofony/core-bundle": "^0.10",
-        "monofony/front-contracts": "^0.10",
-        "monofony/front-meta": "^0.10",
-        "monofony/core-contracts": "^0.10",
+        "monofony/behat-bridge": "^0.11",
+        "monofony/core-bundle": "^0.11",
+        "monofony/front-contracts": "^0.11",
+        "monofony/front-meta": "^0.11",
+        "monofony/core-contracts": "^0.11",
         "sylius/ui-bundle": "^2.0@alpha",
         "phpstan/phpstan": "^1.5",
         "symfony/asset": "^6.4 || ^7.1",
@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "phpstan/phpstan": "^1.5",
-        "monofony/behat-bridge": "^0.10"
+        "monofony/behat-bridge": "^0.11"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -32,7 +32,7 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "0.10-dev"
+            "dev-master": "0.11-dev"
         }
     }
 }
