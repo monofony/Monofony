@@ -1,3 +1,17 @@
+⚠️ DEPRECATED
+-------------
+
+These Monofony packages that are inside this repository are deprecated.
+Please use [Sylius Stack instead](https://stack.sylius.com/getting-started).
+
+
+🚧 Migration
+------------
+
+If you already have some projects using Monofony, here is a [guide to remove dependencies to Monofony packages](REMOVE_MONOFONY.md).
+
+___
+
 <h1 align="center">
     <img src="https://github.com/Monofony/Monofony/raw/0.x/docs/_images/doc_logo.png" alt="Monofony Logo" />
     <br />
