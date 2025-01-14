@@ -10,6 +10,11 @@ Please use [Sylius Stack instead](https://stack.sylius.com/getting-started).
 
 If you already have some projects using Monofony, here is a [guide to remove dependencies to Monofony packages](REMOVE_MONOFONY.md).
 
+🌙 Future of the Monofony Project
+---------------------------------
+
+In the near future, Monofony will provide some Flex recipes to help you building some basic features quickly.
+
 ___
 
 <h1 align="center">
